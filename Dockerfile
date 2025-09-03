@@ -1,6 +1,3 @@
-LABEL org.opencontainers.image.source=https://github.com/cozybear-dev/tor-relay
-LABEL org.opencontainers.image.description="Tor wrapped in Google Distroless running as non-root"
-
 # Builder stage to set up Tor from Tor Project's Trixie repository
 FROM debian:bookworm-slim AS builder
 
@@ -35,6 +32,10 @@ RUN mkdir -p /var/lib/tor /var/log/tor && \
 
 # Copy Tor binary and necessary libraries to distroless
 FROM gcr.io/distroless/base-debian12:nonroot
+
+LABEL org.opencontainers.image.source=https://github.com/cozybear-dev/tor-relay
+LABEL org.opencontainers.image.description="Tor wrapped in Google Distroless running as non-root"
+
 COPY --from=builder /tor-libs/lib /lib/
 COPY --from=builder /usr/bin/tor /usr/bin/tor
 
