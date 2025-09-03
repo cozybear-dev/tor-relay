@@ -1,3 +1,6 @@
+LABEL org.opencontainers.image.source=https://github.com/cozybear-dev/tor-relay
+LABEL org.opencontainers.image.description="Tor wrapped in Google Distroless running as non-root"
+
 # Builder stage to set up Tor from Tor Project's Trixie repository
 FROM debian:bookworm-slim AS builder
 
