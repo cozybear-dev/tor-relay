@@ -16,12 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Extract version from Dockerfile
-        id: version
-        run: |
-          VERSION=$(grep -i 'VERSION=' Dockerfile | head -1 | cut -d'=' -f2 | tr -d '"')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -39,7 +33,6 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=latest
-            type=raw,value=${{ steps.version.outputs.version }}
             type=ref,event=branch
             type=sha
 
