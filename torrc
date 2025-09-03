@@ -1,0 +1,17 @@
+Log notice file /var/log/tor/notices.log
+
+DataDirectory /var/lib/tor
+
+ORPort 127.0.0.1:9000
+
+Address 127.0.0.1
+
+OutboundBindAddress 127.0.0.1
+
+Nickname testing
+
+ContactInfo testing
+
+MyFamily asdf
+
+Sandbox 1
