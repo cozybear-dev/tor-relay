@@ -32,7 +32,6 @@ RUN mkdir -p /var/lib/tor /var/log/tor && \
 
 # Copy Tor binary and necessary libraries to distroless
 FROM gcr.io/distroless/base-debian12:nonroot
-# COPY --from=builder /tor-libs/ /lib/x86_64-linux-gnu/
 COPY --from=builder /tor-libs/lib /lib/
 COPY --from=builder /usr/bin/tor /usr/bin/tor
 
