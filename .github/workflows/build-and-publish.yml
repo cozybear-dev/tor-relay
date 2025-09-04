@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    schedule: # This is to ensure we always have the latest stable Tor version available in the image
+      - cron: '0 0 * * 0'  # Weekly on Sundays at midnight
 
 jobs:
   build-and-push:
