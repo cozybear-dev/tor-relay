@@ -4,6 +4,10 @@
 docker pull ghcr.io/cozybear-dev/tor-relay:latest
 ```
 
+```
+docker run -it -v ./torrc:/etc/tor/torrc --network host ghcr.io/cozybear-dev/tor-relay:latest
+```
+
 By hash is also possible, you can find the hash as the short hash for each commit in the GitHub UI or as a tag at the package section.
 
 ```
